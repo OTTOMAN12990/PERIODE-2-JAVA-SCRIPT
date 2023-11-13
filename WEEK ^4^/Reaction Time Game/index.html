@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #container {
+            text-align: center;
+            margin-top: 100px;
+        }
+        #goButton, #target {
+            width: 100px;
+            height: 50px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        #target {
+            display: none;
+            background-color: red;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const goButton = document.getElementById('goButton');
+            const target = document.getElementById('target');
+            let startTime, endTime;
+
+            goButton.addEventListener('click', startGame);
+
+            function startGame() {
+                goButton.style.display = 'none';
+                target.style.backgroundColor = 'red';
+                target.style.display = 'block';
+
+                setTimeout(function () {
+                    target.style.backgroundColor = 'green';
+                    startTime = new Date().getTime();
+                    target.addEventListener('click', endGame);
+                }, Math.floor(Math.random() * 10000) + 1);
+            }
+
+            function endGame() {
+                endTime = new Date().getTime();
+                const reactionTime = endTime - startTime;
+                alert(`Je reactietijd is ${reactionTime} milliseconden`);
+
+                target.style.display = 'none';
+                goButton.style.display = 'block';
+                target.removeEventListener('click', endGame);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <button id="goButton">GO</button>
+        <div id="target"></div>
+    </div>
+</body>
+</html>
