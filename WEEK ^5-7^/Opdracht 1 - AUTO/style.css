@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    background-image: url(./img/background.png);
+}
+
+header {
+    padding-bottom: 1rem;
+}
+
+.container {
+    background-color: aliceblue;
+    border-radius: 0.5rem;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    padding: 1rem;
+}
+
+.buttons {
+    padding: 0.5rem 0rem;
+}
+
+button {
+    width: 7rem;
+    padding: 0.2rem;
+}
+
+#car {
+    position: absolute;
+    left: 610px;
+    top: 580px;
+    width: 40px;
+    height: 80px;
+}
